@@ -1,0 +1,21 @@
+{
+    "title": "Architecture, Installation & Maintenance",
+    "description": "Cluster Upgrade",
+    "details": {
+      "intro": {
+        "text": "intro.md"
+      }, 
+      "steps": [
+        {
+          "title": "Weight: 10",
+          "text": "step1/q.md"
+        }
+      ],
+      "finish": {
+        "text": "finish.md"
+      }
+    },
+    "backend": {
+      "imageid": "kubernetes-kubeadm-2nodes"
+    }
+}

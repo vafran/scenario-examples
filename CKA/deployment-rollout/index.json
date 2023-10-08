@@ -1,0 +1,22 @@
+{
+    "title": "Workloads & Scheduling",
+    "description": "Deployment, Rollout",
+    "details": {
+      "intro": {
+        "text": "intro.md"
+      },
+      "steps": [
+        {
+          "title": "Weight: 8",
+          "text": "step1/q.md",
+          "verify": "step1/v.sh"
+        }
+      ],
+      "finish": {
+        "text": "finish.md"
+      }
+    },
+    "backend": {
+      "imageid": "kubernetes-kubeadm-2nodes"
+    }
+}
