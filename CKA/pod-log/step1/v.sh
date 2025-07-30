@@ -28,12 +28,14 @@ fi
 
 # Check the command and args
 EXPECTED_COMMAND="/bin/sh"
-EXPECTED_ARGS="tail -f /config/log.txt"
+EXPECTED_ARGS0="-c"
+EXPECTED_ARGS1="tail -f /config/log.txt"
 
 CURRENT_COMMAND=$(kubectl get pod "$POD_NAME" -o jsonpath="{.spec.containers[?(@.name=='$CONTAINER_NAME')].command[0]}")
-CURRENT_ARGS=$(kubectl get pod "$POD_NAME" -o jsonpath="{.spec.containers[?(@.name=='$CONTAINER_NAME')].args[0]}")
+CURRENT_ARGS0=$(kubectl get pod "$POD_NAME" -o jsonpath="{.spec.containers[?(@.name=='$CONTAINER_NAME')].args[0]}")
+CURRENT_ARGS1=$(kubectl get pod "$POD_NAME" -o jsonpath="{.spec.containers[?(@.name=='$CONTAINER_NAME')].args[1]}")
 
-if [ "$CURRENT_COMMAND" = "$EXPECTED_COMMAND" ] && [ "$CURRENT_ARGS" = "$EXPECTED_ARGS" ]; then
+if [ "$CURRENT_COMMAND" = "$EXPECTED_COMMAND" ] && [ "$CURRENT_ARGS0" = "$EXPECTED_ARGS0" ] && [ "$CURRENT_ARGS1" = "$EXPECTED_ARGS1" ]; then
   echo "Command and args are correctly set."
 else
   echo "Error: Command and args are not correctly set."
